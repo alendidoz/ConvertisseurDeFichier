@@ -24,6 +24,11 @@
 </script>
 
 <body>
+
+    <label for="file">Téléchargez un fichier :</label>
+    <input type="file" id="file" name="file" accept=".jpg,.png,.pdf,.docx,.mp3,.mp4" onchange="displayFileSize()">
+    <div id="file-size" style="font-size: 1.2rem; color: #ff6600; margin-top: 0.5rem;"></div>
+
     
     <div class="loading-bar"></div>
 
