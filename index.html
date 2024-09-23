@@ -3,11 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mon Convertisseur de Fichiers</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Convertisseur de Fichiers</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        main {
+            padding: 20px;
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            margin-top: 1rem;
+            display: block;
+        }
+
+        input[type="file"] {
+            margin-bottom: 1rem;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
-    <h1>Bienvenue sur mon site</h1>
-    <p>Convertissez facilement vos fichiers ici.</p>
+
+    <header>
+        <h1>Convertisseur de Fichiers</h1>
+    </header>
+
+    <main>
+        <h2>Convertissez vos fichiers facilement</h2>
+        <p>Sélectionnez un fichier à convertir et choisissez le format souhaité.</p>
+
+        <form action="/convert" method="POST" enctype="multipart/form-data">
+            <label for="file">Téléchargez un fichier :</label>
+            <input type="file" id="file" name="file" accept=".jpg,.png,.pdf,.docx,.mp3,.mp4">
+            
+            <label for="format">Choisissez un format :</label>
+            <select id="format" name="format">
+                <option value="pdf">PDF</option>
+                <option value="docx">DOCX</option>
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="mp3">MP3</option>
+                <option value="mp4">MP4</option>
+            </select>
+
+            <button type="submit">Convertir</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Convertisseur de Fichiers. Tous droits réservés.</p>
+    </footer>
+
 </body>
 </html>
