@@ -1,92 +1,100 @@
-/* Applique des styles de base pour le corps du site */
+/* Corps global du site */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Roboto', sans-serif;
+    background-color: #0f0f0f;  /* Couleur de fond très sombre */
+    color: #f2f2f2;  /* Couleur de texte très claire pour le contraste */
     margin: 0;
     padding: 0;
 }
 
-/* Style pour le header (entête du site) */
+/* Entête du site (Header) */
 header {
-    background-color: #333;
-    color: white;
+    background-color: #1a1a1a;  /* Couleur de fond encore plus sombre */
+    color: #ff6600;  /* Couleur orange vif */
     padding: 1rem;
     text-align: center;
+    border-bottom: 3px solid #ff6600;  /* Ajout d'une ligne orange sous l'entête */
 }
 
-/* Style du titre principal */
 h1 {
     margin: 0;
-    font-size: 2rem;
+    font-size: 2.5rem;
+    letter-spacing: 0.1rem;  /* Espacement des lettres pour un effet futuriste */
 }
 
-/* Section principale */
+/* Conteneur principal */
 main {
     padding: 20px;
     max-width: 600px;
     margin: 40px auto;
-    background-color: white;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #1e1e1e;  /* Fond sombre mais légèrement plus clair que le body */
     border-radius: 10px;
+    box-shadow: 0 0 20px rgba(255, 102, 0, 0.5);  /* Ombre orange légèrement brillante */
+    border: 2px solid #ff6600;  /* Bordure fine orange autour du conteneur */
 }
 
-/* Style pour les sous-titres */
+/* Style des sous-titres */
 h2 {
-    font-size: 1.5rem;
-    color: #333;
+    color: #ff6600;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
 }
 
 /* Style pour les paragraphes */
 p {
     font-size: 1rem;
-    color: #666;
+    color: #f2f2f2;
 }
 
-/* Style pour les labels des formulaires */
+/* Style pour les labels du formulaire */
 label {
     font-weight: bold;
     margin-top: 1rem;
     display: block;
-    color: #333;
+    color: #ff6600;
 }
 
-/* Style pour le champ de sélection de fichier */
+/* Champ de téléchargement de fichier */
 input[type="file"] {
     margin-bottom: 1rem;
-    font-size: 1rem;
-    padding: 5px;
+    padding: 8px;
+    background-color: #0f0f0f;
+    color: #f2f2f2;
+    border: 1px solid #ff6600;
+    border-radius: 5px;
 }
 
-/* Style pour le menu déroulant */
+/* Menu déroulant */
 select {
     width: 100%;
     padding: 10px;
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    background-color: #0f0f0f;
+    color: #f2f2f2;
+    border: 1px solid #ff6600;
     border-radius: 5px;
-    background-color: #f9f9f9;
+    margin-bottom: 1rem;
 }
 
-/* Style pour le bouton de soumission */
+/* Bouton de conversion */
 button {
-    background-color: #333;
-    color: white;
+    background-color: #ff6600;
+    color: #0f0f0f;
     padding: 10px 20px;
     border: none;
+    font-size: 1.2rem;
     cursor: pointer;
-    font-size: 1rem;
     border-radius: 5px;
     width: 100%;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* Effet hover pour le bouton */
+/* Effet hover sur le bouton */
 button:hover {
-    background-color: #555;
+    background-color: #cc5200;
+    transform: scale(1.05);  /* Légère augmentation de taille pour un effet dynamique */
 }
 
-/* Style pour le pied de page */
+/* Pied de page */
 footer {
     margin-top: 20px;
     text-align: center;
@@ -94,7 +102,7 @@ footer {
     color: #777;
 }
 
-/* Style pour les petits écrans */
+/* Styles responsives pour petits écrans */
 @media (max-width: 600px) {
     main {
         margin: 20px;
