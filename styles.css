@@ -1,6 +1,6 @@
 /* Corps global du site */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Orbitron', sans-serif;  /* Remplace par le nom de la police que tu choisis */
     background-color: #0f0f0f;  /* Couleur de fond très sombre */
     color: #f2f2f2;  /* Couleur de texte très claire pour le contraste */
     margin: 0;
