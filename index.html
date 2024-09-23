@@ -7,6 +7,22 @@
     <link href="https://fonts.googleapis.com/css2?family=Ornbitro&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
+    
+<script>
+    function displayFileSize() {
+        const fileInput = document.getElementById('file');
+        const fileSizeDiv = document.getElementById('file-size');
+
+        if (fileInput.files.length > 0) {
+            const file = fileInput.files[0];
+            const sizeInKB = (file.size / 1024).toFixed(2); // Taille en Ko
+            fileSizeDiv.textContent = `Taille du fichier : ${sizeInKB} Ko`;
+        } else {
+            fileSizeDiv.textContent = ''; // Réinitialise si aucun fichier
+        }
+    }
+</script>
+
 <body>
     
     <div class="loading-bar"></div>
