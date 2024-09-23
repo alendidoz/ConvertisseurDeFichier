@@ -120,7 +120,7 @@ footer {
     top: 0;
     left: 0;
     width: 100%; /* Prend toute la largeur */
-    height: 5px; /* Hauteur de la barre */
+    height: 20px; /* Hauteur de la barre */
     background: linear-gradient(90deg, red, yellow, green, cyan, blue, magenta, red); /* Dégradé RGB */
     background-size: 400% 100%; /* Pour le dégradé animé */
     animation: loading 2s linear infinite; /* Animation de chargement */
