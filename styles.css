@@ -121,20 +121,19 @@ footer {
     left: 0;
     width: 100%; /* Prend toute la largeur */
     height: 5px; /* Hauteur de la barre */
-    background-color: #ff6600; /* Couleur de la barre */
-    animation: loading 2s infinite; /* Animation de chargement */
+    background: linear-gradient(90deg, red, yellow, green, cyan, blue, magenta, red); /* Dégradé RGB */
+    background-size: 400% 100%; /* Pour le dégradé animé */
+    animation: loading 2s linear infinite; /* Animation de chargement */
     z-index: 9999; /* Assure que la barre est au-dessus des autres éléments */
 }
 
 /* Animation de la bande de chargement */
 @keyframes loading {
     0% {
-        transform: translateX(-100%); /* Commence à gauche hors de la vue */
-    }
-    50% {
-        transform: translateX(100%); /* Se déplace vers la droite hors de la vue */
+        background-position: 0% 0%; /* Commence à gauche */
     }
     100% {
-        transform: translateX(-100%); /* Retourne à gauche hors de la vue */
+        background-position: 100% 0%; /* Se déplace vers la droite */
     }
 }
+
