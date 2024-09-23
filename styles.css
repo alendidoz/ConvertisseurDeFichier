@@ -114,3 +114,27 @@ footer {
     }
 }
 
+/* Styles de la bande de chargement */
+.loading-bar {
+    position: fixed; /* Reste en haut de la page */
+    top: 0;
+    left: 0;
+    width: 100%; /* Prend toute la largeur */
+    height: 5px; /* Hauteur de la barre */
+    background-color: #ff6600; /* Couleur de la barre */
+    animation: loading 2s infinite; /* Animation de chargement */
+    z-index: 9999; /* Assure que la barre est au-dessus des autres éléments */
+}
+
+/* Animation de la bande de chargement */
+@keyframes loading {
+    0% {
+        transform: translateX(-100%); /* Commence à gauche hors de la vue */
+    }
+    50% {
+        transform: translateX(100%); /* Se déplace vers la droite hors de la vue */
+    }
+    100% {
+        transform: translateX(-100%); /* Retourne à gauche hors de la vue */
+    }
+}
