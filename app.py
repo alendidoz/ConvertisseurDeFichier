@@ -1,30 +1,34 @@
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for
 import os
 
 app = Flask(__name__)
-UPLOAD_FOLDER = 'uploads'  # Dossier pour stocker les fichiers téléchargés
+UPLOAD_FOLDER = 'uploads'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
-# Fonction pour gérer la conversion (exemple simple)
-def convert_file(file, format):
-    # Logique de conversion ici, par exemple avec un module comme pydub pour MP3
-    return f"Le fichier {file.filename} a été converti en {format}."
+# Fonction pour la conversion de fichiers (à personnaliser selon les besoins)
+def convert_file(file_path, target_format):
+    # Logique de conversion ici (par exemple avec pydub, Pillow, etc.)
+    # Ex: convertir un fichier audio avec pydub, ou une image avec Pillow
+    return f"Le fichier {file_path} a été converti en {target_format}."
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
+        # Gestion du fichier téléchargé
         file = request.files['file']
-        format = request.form['format']
-        
-        # Sauvegarder le fichier téléchargé
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], file.filename))
-        
-        # Appeler la fonction de conversion
-        result = convert_file(file, format)
-        
-        return result  # Remplace par une redirection ou un message sur la page
+        format_selected = request.form['format']
+        if file:
+            filename = file.filename
+            file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+            file.save(file_path)
 
+            # Appeler la fonction de conversion
+            conversion_result = convert_file(file_path, format_selected)
+
+            return f"<h1>{conversion_result}</h1>"
     return render_template('index.html')
 
 if __name__ == '__main__':
+    if not os.path.exists(UPLOAD_FOLDER):
+        os.makedirs(UPLOAD_FOLDER)
     app.run(debug=True)
