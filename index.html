@@ -3,44 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Convertisseur de Fichiers</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ornbitro&display=swap" rel="stylesheet">
+    <title>Convertisseur de Fichiers Futuriste</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
-    
-<script>
-    function displayFileSize() {
-        const fileInput = document.getElementById('file');
-        const fileSizeDiv = document.getElementById('file-size');
-
-        if (fileInput.files.length > 0) {
-            const file = fileInput.files[0];
-            const sizeInKB = (file.size / 1024).toFixed(2); // Taille en Ko
-            fileSizeDiv.textContent = `Taille du fichier : ${sizeInKB} Ko`;
-        } else {
-            fileSizeDiv.textContent = ''; // Réinitialise si aucun fichier
-        }
-    }
-</script>
-
 <body>
-    
+
+    <!-- Bande de chargement RGB -->
     <div class="loading-bar"></div>
 
     <header>
-        <h1>Convertisseur de Fichiers</h1>
+        <h1>Convertisseur de Fichiers Futuriste</h1>
     </header>
 
     <main>
-        <h2>Convertissez vos fichiers facilement</h2>
-        <p>Sélectionnez un fichier à convertir et choisissez le format souhaité.</p>
+        <h2>Sélectionnez votre fichier et le format de conversion</h2>
+        <p>Sélectionnez un fichier à convertir depuis votre PC et choisissez le format souhaité.</p>
 
-        <form action="/convert" method="POST" enctype="multipart/form-data">
+        <!-- Formulaire de téléchargement de fichier -->
+        <form id="file-form" action="/convert" method="POST" enctype="multipart/form-data">
             <label for="file">Téléchargez un fichier :</label>
             <input type="file" id="file" name="file" accept=".jpg,.png,.pdf,.docx,.mp3,.mp4" onchange="displayFileSize()">
-            <div id="file-size" style="font-size: 1.2rem; color: #ff6600; margin-top: 0.5rem;"></div>
+            <div id="file-size"></div>
 
-            
             <label for="format">Choisissez un format :</label>
             <select id="format" name="format">
                 <option value="pdf">PDF</option>
@@ -51,14 +36,49 @@
                 <option value="mp4">MP4</option>
             </select>
 
-            <button type="submit">Convertir</button>
+            <!-- Bouton pour lancer la conversion après la pub -->
+            <button type="button" id="convert-btn" onclick="showAd()">Convertir</button>
         </form>
+
+        <!-- Section de publicité (affichée avant la conversion) -->
+        <div id="ad-section" style="display:none;">
+            <h3>Visionnez cette publicité pour continuer</h3>
+            <video id="ad-video" width="400" controls>
+                <source src="advertisement.mp4" type="video/mp4"> <!-- Remplace par l'URL de ta publicité -->
+                Votre navigateur ne supporte pas la vidéo.
+            </video>
+            <button type="button" onclick="submitForm()">Accepter et Continuer</button>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2024 Convertisseur de Fichiers. Tous droits réservés.</p>
+        <p>&copy; 2024 Convertisseur Futuriste. Tous droits réservés.</p>
     </footer>
+
+    <script>
+        // Affichage de la taille du fichier sélectionné
+        function displayFileSize() {
+            const fileInput = document.getElementById('file');
+            const fileSizeDiv = document.getElementById('file-size');
+            if (fileInput.files.length > 0) {
+                const file = fileInput.files[0];
+                const sizeInKB = (file.size / 1024).toFixed(2); // Taille en Ko
+                fileSizeDiv.textContent = `Taille du fichier : ${sizeInKB} Ko`;
+            } else {
+                fileSizeDiv.textContent = '';
+            }
+        }
+
+        // Fonction pour afficher la publicité
+        function showAd() {
+            document.getElementById('ad-section').style.display = 'block';
+        }
+
+        // Fonction pour soumettre le formulaire après la publicité
+        function submitForm() {
+            document.getElementById('file-form').submit();
+        }
+    </script>
 
 </body>
 </html>
-
