@@ -40,15 +40,17 @@
             <button type="button" id="convert-btn" onclick="showAd()">Convertir</button>
         </form>
 
-        <!-- Section de publicité (affichée avant la conversion) -->
-        <div id="ad-section" style="display:none;">
+        <!-- Section de publicité vidéo -->
+        <div id="ad-section">
             <h3>Visionnez cette publicité pour continuer</h3>
-            <video id="ad-video" width="400" controls>
-                <source src="advertisement.mp4" type="video/mp4"> <!-- Remplace par l'URL de ta publicité -->
-                Votre navigateur ne supporte pas la vidéo.
+            <video id="ad-video" width="400" controls autoplay>
+            <source src="path_to_ad_video.mp4" type="video/mp4">
+            <!-- Publicité intégrée via une plateforme comme Google Ads -->
+            <!-- Par exemple, via AdSense, tu pourrais utiliser leur code publicitaire ici -->
             </video>
             <button type="button" onclick="submitForm()">Accepter et Continuer</button>
         </div>
+
     </main>
 
     <footer>
